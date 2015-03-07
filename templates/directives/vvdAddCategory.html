@@ -1,7 +1,0 @@
-<div>
-    <a href="#" class="btn-main" data-ng-hide="showOptions" data-ng-click="showAdd($event)">+Add Category</a>
-    <p ng-show="showError" class="error">Cannot add category, please increase set width or remove an existing category</p>
-    <div class="btn-container">
-        <a href="#" class="btn-category btn-main" data-ng-show="showOptions" data-ng-click="addCategory($event, category.value)" data-ng-repeat="category in categories" data-ng-style="{'background-color': category.color}">+ADD<br /> <span>{{category.displayName}}</span></a>
-    </div>
-</div>
