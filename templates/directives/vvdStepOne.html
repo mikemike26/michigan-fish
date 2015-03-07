@@ -1,0 +1,17 @@
+<div>
+    <div class="col-md-3">
+        <h3>01</h3>
+        <p class="bold">SELECT</p>
+        <p>Total Set Size</p>
+    </div>
+    <div class="col-md-3">
+        <h4>Total Set Width</h4>
+        <div class="slider" data-floor="{{setConfig.widthMin}}" data-ceiling="{{setConfig.widthMax}}" data-step="1" data-precision="1" data-ng-model="set.width" data-units="{{setConfig.widthUnits}}"></div>
+        <h4>Select Profile Height</h4>
+        <div class="value-select" data-options="{{setConfig.heights}}" data-select-number="1" data-ng-model="set.height.displayName"></div>
+    </div>
+    <div class="col-md-3">
+        <h4>Select a Color</h4>
+        <div class="value-select" data-options="{{setConfig.colors}}" data-select-number="1" data-ng-model="set.color"></div>
+    </div>
+</div>

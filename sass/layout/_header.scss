@@ -1,0 +1,18 @@
+header {
+  width: 100%;
+  &.container-fluid {
+      min-width: 1000px;
+  }
+  .orange {
+      background-color: #C6772D;
+      height: 8px;
+  }
+  .white {
+      background-color: #ffffff;
+      height: 2px;
+  }
+  .gray {
+      background-color: #D8D8D8;
+      height: 20px;
+  }
+}
