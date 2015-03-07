@@ -3,7 +3,7 @@
 
 
 //layout
-
+@import 'layout/theme-styles';
 
 
 //pages
@@ -24,7 +24,6 @@ body {
 }
 th, td, h1, h2, h3, h4, p {
   font-family: 'Open Sans', sans-serif;
-  color: #666666;
 }
 
 h2 {
