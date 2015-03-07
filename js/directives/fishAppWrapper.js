@@ -6,6 +6,7 @@ angular.module('fishApp').directive('fishAppWrapper', function(AnglerData) {
        link: function(scope, element, attrs) {
             AnglerData.getAll().then(function(data) {
                 console.log(data);
+                console.log(AnglerData.getOptions(data));
             });
        }
    }
