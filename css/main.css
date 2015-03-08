@@ -1,4 +1,7 @@
 @charset "UTF-8";
+.fish-app-wrapper #map {
+  height: 500px; }
+
 /*!
  * Start Bootstrap - Landing Page Bootstrap Theme (http://startbootstrap.com)
  * Code licensed under the Apache License v2.0.
