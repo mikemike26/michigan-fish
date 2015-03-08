@@ -34,7 +34,7 @@ angular.module('fishApp').factory('AnglerData', function($q, $http){
         }
         return option;
     };
-    //builds different filter options 
+    //builds different filter options
     AnglerData.getOptions = function(data) {
         var options = {}, item;
         for(var i= 0, j=data.length; j>i; i++) {
