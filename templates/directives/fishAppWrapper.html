@@ -14,7 +14,7 @@
                 <div class="value-select" data-options="{{species}}" data-select-number="5" data-ng-model="selectedOptions"></div>
             </div>
         </div>
-        <div class="scrolling-container row">
+        <div class="scrolling-container row" ng-hide="contents.length === 0">
             <div class="col-md-12 results" ng-repeat="content in contents | filter:searchText">
                 <div class="row">
                     <div class="col-md-6">
