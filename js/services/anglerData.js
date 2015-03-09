@@ -1,4 +1,4 @@
-angular.module('fishApp').factory('AnglerData', function($q, $http){
+angular.module('fishApp').factory('AnglerData', function($q, $http, CityData){
     var AnglerData = {};
 
     AnglerData.getAll = function() {
@@ -21,7 +21,18 @@ angular.module('fishApp').factory('AnglerData', function($q, $http){
         return deferred.promise;
     };
     AnglerData.updateOptionsKey = function(options, key, value) {
-        var option = options[key], update=false;
+        var option = options[key], update=false, cityOption = [];
+        if(key === "angler_s_city") {
+            var availCity = CityData.getCoords();
+            for(var a= 0, b=availCity.length; b>a; a++) {
+                for(var x= 0, y=option.length; y>x; x++) {
+                    if(availCity[a].city === option[x]) {
+                        cityOption.push(availCity[a].city);
+                    }
+                }
+            }
+            option = cityOption;
+        }
         for(var i= 0, j=option.length; j>i; i++) {
             if(option[i] === value) {
                 break;
@@ -71,5 +82,54 @@ angular.module('fishApp').factory('AnglerData', function($q, $http){
         }
         return options;
     };
+    AnglerData.getAllByKey = function(key) {
+        var items = angular.fromJson(localStorage.anglers);
+
+    };
+    AnglerData.sortByOption = function(options, key, data) {
+        var cities = CityData.getCoords(),
+            sorted = {
+                total: NaN,
+                sorted: {}
+            },
+            theseOptions = options[key];
+        sorted.total = data.length;
+        for(var a= 0, b=theseOptions.length; b>a; a++) {
+            sorted.sorted[theseOptions[a]] = {};
+            sorted.sorted[theseOptions[a]].data = [];
+            sorted.sorted[theseOptions[a]].loc = {};
+            for(var x=0, y=cities.length; y>x; x++) {
+                if (cities[x].city === theseOptions[a]) {
+                    sorted.sorted[theseOptions[a]].loc = {
+                        lat: cities[x].loc.results[0].geometry.location.lat,
+                        lng: cities[x].loc.results[0].geometry.location.lng
+                    };
+                    break;
+                }
+            }
+            for(var i= 0, j=data.length; j>i; i++) {
+                if(data[i][key] === theseOptions[a]) {
+                    sorted.sorted[theseOptions[a]].data.push(data[i]);
+                }
+            }
+
+        }
+        console.log(sorted);
+        return sorted;
+    };
     return AnglerData;
 });
+
+//var cities = CityData.getCoords(), circles = [], color;
+//for(var i= 0, j=cities.length; j>i; i++) {
+//    color = Please.make_color();
+//    circles.push([
+//        cities[i].loc.results[0].geometry.location.lat,
+//        cities[i].loc.results[0].geometry.location.lng,
+//        1000,
+//        color,
+//        0.5
+//    ]);
+//}
+
+

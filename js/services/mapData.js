@@ -1,16 +1,21 @@
-angular.module('fishApp').factory('MapData', function(CityData){
+angular.module('fishApp').factory('MapData', function(){
     var MapData = {};
-    MapData.getCircles = function() {
-        var cities = CityData.getCoords(), circles = [];
-        console.log(cities);
-        for(var i= 0, j=cities.length; j>i; i++) {
-            circles.push([
-                cities[i].loc.results[0].geometry.location.lat,
-                cities[i].loc.results[0].geometry.location.lng,
-                1000,
-                Please.make_color(),
-                0.5
-            ]);
+    MapData.getCircles = function(data) {
+        var circles = [], color, thisCity, cities = data.sorted, save = [];
+        console.log(data);
+        for(var city in cities) {
+            if(cities.hasOwnProperty(city)){
+                thisCity = cities[city];
+                color = Please.make_color();
+                circles.push([
+                    thisCity.loc.lat,
+                    thisCity.loc.lng,
+                    1000+(thisCity.data.length*1000) *.5,
+                    color,
+                    0.5,
+                    city
+                ]);
+            }
         }
         return circles;
     };
@@ -23,5 +28,3 @@ angular.module('fishApp').factory('MapData', function(CityData){
 //    fillColor: '#f03',
 //    fillOpacity: 0.5
 //}).addTo(map);
-
-//Please.make_color();
