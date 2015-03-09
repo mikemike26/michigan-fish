@@ -117,6 +117,37 @@ angular.module('fishApp').factory('AnglerData', function($q, $http, CityData){
         console.log(sorted);
         return sorted;
     };
+    AnglerData.filterByValues = function(items, newValue) {
+        total=0;
+        if(newValue) {
+            var thisItem, output={},total= 0,myItems = {}, theseItems = items.sorted;
+            for(var i= 0, j=newValue.length; j>i; i++) {
+                for(var item in theseItems) {
+                    if(theseItems.hasOwnProperty(item)){
+                        thisItem = theseItems[item];
+                        for(var a= 0, b=thisItem.data.length; b>a; a++) {
+                            if(thisItem.data[a].species === newValue[i]) {
+                                if(!myItems[item]) {
+                                    myItems[item] = {
+                                        data: [],
+                                        loc: thisItem.loc
+                                    };
+                                }
+                                myItems[item].data.push(thisItem.data[a]);
+                                total++;
+                            }
+                        }
+                    }
+                }
+            }
+            output.total = total;
+            output.sorted = myItems;
+            return output;
+        }else {
+            return items;
+        }
+
+    };
     return AnglerData;
 });
 
@@ -132,4 +163,21 @@ angular.module('fishApp').factory('AnglerData', function($q, $http, CityData){
 //    ]);
 //}
 
+//for(var item in theseItems) {
+//    if(theseItems.hasOwnProperty(item)){
+//        output=[];
+//        thisItem = theseItems[item];
+//        console.log(thisItem.data.length);
+//        for(var a= 0, b=newValue.length; b>a; a++) {
+//            for(var i= 0, j=thisItem.data.length; j>i; i++) {
+//                data=thisItem.data[i];
+//                if(data.species === newValue[a]) {
+//                    output.push(data);
+//                    total++;
+//                }
+//            }
+//        }
+//        myItems.sorted[item].data = output;
+//    }
+//}
 

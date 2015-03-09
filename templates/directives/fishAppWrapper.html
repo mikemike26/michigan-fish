@@ -1,8 +1,56 @@
 <div>
     <div class="col-lg-5 col-sm-6">
-        <div id="map"></div>
+        <div id="map"><p class="hover-out" ng-hide="hoverMsg === ''">{{hoverMsg}}</p></div>
     </div>
-    <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-
+    <div class="col-lg-5 col-lg-offset-2 col-sm-6 results-container">
+        <div ng-hide="contents.length === 0">
+            <p><input ng-model="searchText" placeholder="start typing to filter results"></p>
+            <h4>Results for {{city}}</h4>
+            <button class="back" ng-click="reset()"><span class="glyphicon glyphicon-remove"></span></button>
+        </div>
+        <div class="options" ng-show="contents.length === 0">
+            <p>Select up to 5 species and click a city</p>
+            <div class="species-container">
+                <div class="value-select" data-options="{{species}}" data-select-number="5" data-ng-model="selectedOptions"></div>
+            </div>
+        </div>
+        <div class="scrolling-container row">
+            <div class="col-md-12 results" ng-repeat="content in contents | filter:searchText">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Name: {{content.angler}}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>City: {{content.angler_s_city}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Bait: {{content.bait}}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>Category: {{content.category}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Method: {{content.method}}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>Species: {{content.species}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Size: {{content.length_in}}"</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>Where: {{content.waterbody}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
+

@@ -2,4 +2,54 @@
     #map {
       height: 500px;
     }
+    .hover-out {
+      z-index: 100;
+      position: absolute;
+      right: 0;
+      background-color: #ffffff;
+      padding: 1em;
+    }
+  .results-container {
+
+    input {
+      width: 100%;
+      color: #666666;
+      font-weight: normal;
+      font-size: 0.8em;
+      padding: 3px;
+    }
+  }
+  .scrolling-container {
+    height: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .results {
+    margin-bottom: 0.5em;
+    padding: 0.5em;
+    &:nth-child(2n) {
+      background-color: #e6e7e6;
+    }
+    p {
+      color: #666666;
+      font-weight: normal;
+      font-size: 0.8em;
+      margin: 0;
+    }
+  }
+  .back {
+    background-color: transparent;
+    border: none;
+    color: #666666;
+    position: absolute;
+    top: -22px;
+    right: -9px;
+  }
+  .species-container {
+    height: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    outline: 0;
+
+  }
 }

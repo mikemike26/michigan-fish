@@ -1,6 +1,44 @@
 @charset "UTF-8";
 .fish-app-wrapper #map {
   height: 500px; }
+.fish-app-wrapper .hover-out {
+  z-index: 100;
+  position: absolute;
+  right: 0;
+  background-color: #ffffff;
+  padding: 1em; }
+.fish-app-wrapper .results-container input {
+  width: 100%;
+  color: #666666;
+  font-weight: normal;
+  font-size: 0.8em;
+  padding: 3px; }
+.fish-app-wrapper .scrolling-container {
+  height: 500px;
+  overflow-y: auto;
+  overflow-x: hidden; }
+.fish-app-wrapper .results {
+  margin-bottom: 0.5em;
+  padding: 0.5em; }
+  .fish-app-wrapper .results:nth-child(2n) {
+    background-color: #e6e7e6; }
+  .fish-app-wrapper .results p {
+    color: #666666;
+    font-weight: normal;
+    font-size: 0.8em;
+    margin: 0; }
+.fish-app-wrapper .back {
+  background-color: transparent;
+  border: none;
+  color: #666666;
+  position: absolute;
+  top: -22px;
+  right: -9px; }
+.fish-app-wrapper .species-container {
+  height: 500px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  outline: 0; }
 
 /*!
  * Start Bootstrap - Landing Page Bootstrap Theme (http://startbootstrap.com)
@@ -4923,5 +4961,11 @@ a {
   font-family: 'Open Sans', sans-serif; }
   a:hover {
     text-decoration: none; }
+
+button {
+  border: none;
+  background-color: transparent; }
+  button:focus {
+    outline: 0; }
 
 /*# sourceMappingURL=main.css.map */
