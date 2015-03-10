@@ -40,6 +40,10 @@
   overflow-x: hidden;
   outline: 0; }
 
+.value-select p {
+  font-size: 1em;
+  margin: 0; }
+
 /*!
  * Start Bootstrap - Landing Page Bootstrap Theme (http://startbootstrap.com)
  * Code licensed under the Apache License v2.0.

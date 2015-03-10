@@ -114,7 +114,6 @@ angular.module('fishApp').factory('AnglerData', function($q, $http, CityData){
             }
 
         }
-        console.log(sorted);
         return sorted;
     };
     AnglerData.filterByValues = function(items, newValue) {

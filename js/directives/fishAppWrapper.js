@@ -6,7 +6,7 @@ angular.module('fishApp').directive('fishAppWrapper', function(AnglerData, CityD
        link: function(scope, element, attrs) {
            var options, circles, circle = [], itemsByCity, items, filterCities, map;
            var howMany = function(e) {
-               var city
+               var city;
                if(filterCities) {
                    city = filterCities.sorted[e.target.options.city];
                }else {
@@ -75,8 +75,6 @@ angular.module('fishApp').directive('fishAppWrapper', function(AnglerData, CityD
             });
            scope.$watch('selectedOptions', function(newValue, oldValue) {
                filterCities = AnglerData.filterByValues(items, newValue);
-               console.log(filterCities);
-               console.log(newValue);
                updateMap(filterCities);
            });
            scope.reset = function() {
